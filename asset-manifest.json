@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/minesweeper-remake/static/css/main.fe975646.css",
+    "main.js": "/minesweeper-remake/static/js/main.c3871606.js",
+    "static/js/787.e867dfcb.chunk.js": "/minesweeper-remake/static/js/787.e867dfcb.chunk.js",
+    "static/media/Minesweeper_bomb.png": "/minesweeper-remake/static/media/Minesweeper_bomb.252e649826351fd64e7b.png",
+    "index.html": "/minesweeper-remake/index.html",
+    "main.fe975646.css.map": "/minesweeper-remake/static/css/main.fe975646.css.map",
+    "main.c3871606.js.map": "/minesweeper-remake/static/js/main.c3871606.js.map",
+    "787.e867dfcb.chunk.js.map": "/minesweeper-remake/static/js/787.e867dfcb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe975646.css",
+    "static/js/main.c3871606.js"
+  ]
+}
