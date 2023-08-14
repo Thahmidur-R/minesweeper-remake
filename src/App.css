@@ -35,16 +35,20 @@
 
 @media  screen and (min-width:1500px) {
   #gameBoard{
-    max-width:700px;
-    max-height:700px;
+    max-width: 700px;
+    max-height:800px;
+    
    }
-   
+   .begGrid{min-height:400px;}
+   .intGrid{min-height:600px;}
+   .expGrid{min-height:650px;}
  }
  
 @media  screen and (max-width:1500px) {
-  
-  #gameBoard{
-    max-height:150px;
-   }
+  #gameBoard{max-height:900px;}
+
+  .begGrid{min-height: 400px;}
+  .intGrid{min-height:550px;}
+  .expGrid{min-height: 550px;}
    
  }

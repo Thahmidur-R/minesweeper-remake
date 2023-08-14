@@ -1,6 +1,9 @@
+import './DrawBoard.css'
 
-import logo from '../bomb.svg';
-import flagImg from '../flag_icon_orange_4.svg';
+
+
+
+
 
 const DrawBoard=(props)=>{
   let board=[];
@@ -8,14 +11,8 @@ const DrawBoard=(props)=>{
 
    
     let i=0;
-    let image=document.createElement('img')
-   image.src=logo;
-   image.alt='bomb image';
-   image.className='bombPicture';
-  let image2=document.createElement('img')
-  image2.src= flagImg;
-  image2.alt='flag image';
-  image2.className='flagPicture'
+ 
+  
   let rows=props.grid.rows;
   let columns=props.grid.cols;
   let bombs= props.grid.bombs;
@@ -24,15 +21,11 @@ const DrawBoard=(props)=>{
   let numPadding=rows*11+100;
   if(rows>10){varPadding=`${numPadding}px`}
  
-  
-  
-  
-  
   function uncoverZero(row,col){
     
     if(row!==0 && col!==0){
-      if(document.getElementById((row-1)+'-'+(col-1)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col-1)+'-flag')==null){
-      document.getElementById((row-1)+'-'+(col-1)).style.visibility='visible'
+      if(document.getElementById('uncovered-'+(row-1)+'-'+(col-1)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col-1)+'-flag')==null){
+      document.getElementById('uncovered-'+(row-1)+'-'+(col-1)).style.visibility='visible'
       if(board[row-1][col-1]==0){
         uncoverZero(row-1,col-1)
      
@@ -44,8 +37,8 @@ const DrawBoard=(props)=>{
     }
   }
   if(col!==0){
-     if(document.getElementById((row)+'-'+(col-1)).style.visibility!=='visible'& document.getElementById('covered-'+(row)+'-'+(col-1)+'-flag')== null){
-    document.getElementById((row)+'-'+(col-1)).style.visibility='visible'
+     if(document.getElementById('uncovered-'+(row)+'-'+(col-1)).style.visibility!=='visible'& document.getElementById('covered-'+(row)+'-'+(col-1)+'-flag')== null){
+    document.getElementById('uncovered-'+(row)+'-'+(col-1)).style.visibility='visible'
     if(board[row][col-1]==0){
       uncoverZero(row,col-1)
       
@@ -54,8 +47,8 @@ const DrawBoard=(props)=>{
   }
   }
   if(row!==(rows-1) && col!==0){
-   if(document.getElementById((row+1)+'-'+(col-1)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col-1)+'-flag')==null){
-  document.getElementById((row+1)+'-'+(col-1)).style.visibility='visible'
+   if(document.getElementById('uncovered-'+(row+1)+'-'+(col-1)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col-1)+'-flag')==null){
+  document.getElementById('uncovered-'+(row+1)+'-'+(col-1)).style.visibility='visible'
   if(board[row+1][col-1]==0){
     uncoverZero(row+1,col-1)
     
@@ -64,8 +57,8 @@ const DrawBoard=(props)=>{
   }
   }
   if(row!==0){
-     if(document.getElementById((row-1)+'-'+(col)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col)+'-flag')== null){
-  document.getElementById((row-1)+'-'+(col)).style.visibility='visible'
+     if(document.getElementById('uncovered-'+(row-1)+'-'+(col)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col)+'-flag')== null){
+  document.getElementById('uncovered-'+(row-1)+'-'+(col)).style.visibility='visible'
   if(board[row-1][col]==0){
     uncoverZero(row-1, col)
     
@@ -76,8 +69,8 @@ const DrawBoard=(props)=>{
   
   if(row!==(rows-1)){
     
-   if(document.getElementById((row+1)+'-'+(col)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col)+'-flag')==null){
-  document.getElementById((row+1)+'-'+(col)).style.visibility='visible'
+   if(document.getElementById('uncovered-'+(row+1)+'-'+(col)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col)+'-flag')==null){
+  document.getElementById('uncovered-'+(row+1)+'-'+(col)).style.visibility='visible'
   if(board[row+1][col]==0){
     uncoverZero(row+1, col)
     
@@ -87,8 +80,8 @@ const DrawBoard=(props)=>{
   }
   if(row!==0 && col!==(columns-1)){
     
-   if(document.getElementById((row-1)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col+1)+'-flag')==null){
-  document.getElementById((row-1)+'-'+(col+1)).style.visibility='visible'
+   if(document.getElementById('uncovered-'+(row-1)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row-1)+'-'+(col+1)+'-flag')==null){
+  document.getElementById('uncovered-'+(row-1)+'-'+(col+1)).style.visibility='visible'
   if(board[row-1][col+1]==0){
     uncoverZero(row-1, col+1)
     
@@ -97,8 +90,8 @@ const DrawBoard=(props)=>{
   }
   }
   if(col!==(columns-1)){
-     if(document.getElementById((row)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row)+'-'+(col+1)+'-flag')==null){
-  document.getElementById((row)+'-'+(col+1)).style.visibility='visible'
+     if(document.getElementById('uncovered-'+(row)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row)+'-'+(col+1)+'-flag')==null){
+  document.getElementById('uncovered-'+(row)+'-'+(col+1)).style.visibility='visible'
   if(board[row][col+1]==0){
     uncoverZero(row, col+1)
     
@@ -108,8 +101,8 @@ const DrawBoard=(props)=>{
   }
   
   if(row!==(rows-1) && col!==(columns-1)){
-    if(document.getElementById((row+1)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col+1)+'-flag')== null){
-  document.getElementById((row+1)+'-'+(col+1)).style.visibility='visible'
+    if(document.getElementById('uncovered-'+(row+1)+'-'+(col+1)).style.visibility!=='visible' && document.getElementById('covered-'+(row+1)+'-'+(col+1)+'-flag')== null){
+  document.getElementById('uncovered-'+(row+1)+'-'+(col+1)).style.visibility='visible'
   if(board[row+1][col+1]==0){
     uncoverZero(row+1, col+1)
     
@@ -124,18 +117,23 @@ const DrawBoard=(props)=>{
   function tileClicked(event){
     
     let str=event.target.id;
-    if(str.length<8){str= 'covered-'+str}
+    if (str.includes('uncovered')) {
+      str = str.replace('uncovered', 'covered');
+    }
+    let uncoverStr=str.replace('covered-','uncovered-')
     let newStr=str.replace('covered-','')
     let newStrFlag= str.replace('-flag','')
     let newStrRow= Number(newStr.substring(0, newStr.lastIndexOf('-')))
     let newStrCol=Number(newStr.substring(newStr.lastIndexOf('-')+1))
     let currTile=document.getElementById(str);
+    
     switch(event.button){
       case 0:
-        if(str.includes('flag')){return;}
-        if(document.getElementById(newStr).getAttribute('value') === 'bomb'
+        if(str==''){return}
+        if(str.includes('flag')|| currTile.style.visibility=='visible'){return;}
+        if(board[newStrRow][newStrCol] === 'bomb'
         ){
-          document.getElementById(newStr).style.backgroundColor= 'red';
+          document.getElementById(uncoverStr).style.backgroundColor= 'red';
         let allTiles= document.getElementsByClassName('uncoveredTile')
         for (let i = 0; i < allTiles.length; i++ ) {
           allTiles[i].style.visibility = "visible";
@@ -145,15 +143,16 @@ const DrawBoard=(props)=>{
   return;
         }
       
-  document.getElementById(newStr).style.visibility='visible';
+  document.getElementById(uncoverStr).style.visibility='visible';
   
  
-  if(document.getElementById(newStr).getAttribute('value')==='zero'){
+  if(board[newStrRow][newStrCol]===0){
   uncoverZero(newStrRow, newStrCol)
   };
   break;
       case 2:
-        
+      
+        if(str==''){return}
         if(str.includes('flag')){
           currTile.classList.remove('flaggedTile');
           currTile.classList.add('coveredTile')
@@ -161,7 +160,7 @@ const DrawBoard=(props)=>{
   
         return;
       }
-        if(document.getElementById(newStr).style.visibility=='hidden'){
+        if(document.getElementById(uncoverStr).style.visibility=='hidden'){
         if(document.getElementById(str+'-flag')){
           document.getElementById(str+'-flag').classList.remove('flaggedTile');
         }
@@ -196,12 +195,7 @@ const DrawBoard=(props)=>{
     };
     for(let r=0; r<rows; r++){
       for(let c=0; c<columns; c++){
-        let coveredTile=document.createElement('div')
-        coveredTile.className='coveredTile'
-        coveredTile.id='covered-'+r.toString()+ '-' + c.toString();
-    let uncoveredTile=document.createElement('div');
-    uncoveredTile.id=r.toString()+ '-' + c.toString();
-    uncoveredTile.className='uncoveredTile';
+      
    
     let val= board[r][c];
   
@@ -232,63 +226,96 @@ const DrawBoard=(props)=>{
       board[r][c]++;
     }
     
-    document.getElementById('gameBoard').append(coveredTile)
-    document.getElementById(coveredTile.id).append(uncoveredTile)
-    document.getElementById(uncoveredTile.id).style.visibility='hidden'
-    if(board[r][c]!=='bomb' && board[r][c]!==0){
-    uncoveredTile.innerText=board[r][c]
-    }
-    if(board[r][c]==0){
-     
-      document.getElementById(uncoveredTile.id).setAttribute('value', 'zero');
-      
-    }
-    if(board[r][c]=='bomb'){
-      document.getElementById(uncoveredTile.id).appendChild(image.cloneNode(true))
-     
-      document.getElementById(uncoveredTile.id).setAttribute('value', 'bomb');  
-    }
-    document.getElementById(coveredTile.id).addEventListener('mousedown', tileClicked)
+    
     
     
   }
         
     }
    let container=document.querySelector('.gameContainer')
-   let gameBoard=document.getElementById('gameBoard')
-   let boardHeight=rows*40;
+  
+  
    let boardWidth=columns*40;
    let ratio= rows>columns?rows/columns: columns/rows;
    let customMax=400*ratio;
    
-  gameBoard.style.gridTemplateRows= 'repeat('+rows+',1fr)';
-  gameBoard.style.gridTemplateColumns= 'repeat('+columns+',1fr)';
-  gameBoard.style.height=`${boardHeight}px`
   container.style.width=`${boardWidth}px`
   
 if(window.matchMedia("(max-width:1500px)").matches){
   document.querySelector('.gameContainer').style.paddingTop=varPadding
 }
 
-
-  if(rows>columns){
-    gameBoard.style.maxHeight=`${customMax}px`
+function findMinHeight(className) {
+  if(className!=='customGrid'){return}
   
-    if(ratio>2){document.querySelector('.App').style.paddingTop="300px";}
-
-   
+  let minGridHeight = '400px';
+  if (rows > 14) {
+    minGridHeight = '600px';
   }
-  else if(columns>rows){
+  if (rows > 20) {
+    minGridHeight = '750px';
+  }
+  
+  const customGrid = document.querySelector(`.${className}`);
+  if (customGrid) {
+    if (window.matchMedia("(min-width:1500px)").matches) {
+      customGrid.style.minHeight = minGridHeight;
+    }
+  }
+  return;
+}
+  if(columns>rows){
     
     container.style.maxWidth=`${customMax}px`
   }
   else{
     
-  gameBoard.style.maxHeight='600px'
+ 
   container.style.maxWidth='600px';
+ 
   
   
-  }
+  };
+
+  
+  const createTile = (r, c, value) => {
+    let content;
+if (value === 'bomb') {
+  content = <div className='bombPicture' />;
+} else if(value===0){
+  content = '';
+}
+else{content=value}
+
+    return (
+   
+        
+        <div className="uncoveredTile" id={`uncovered-${r}-${c}`} style={{visibility:'hidden'}}>
+        {content}
+        </div>
+   
+    );
+  };
+  const MakeBoard = () => {
+    return board.map((row, r) => {
+      return row.map((col, c) => {
+        return (
+          <div className="coveredTile"  id={`covered-${r}-${c}`} onMouseDown={tileClicked} key={c}>
+            {createTile(r, c, col)}
+          </div>
+        );
+      });
+    });
+  };
+
+
+return(
+  <div id='gameBoard' className={props.gridClass} style={{display:`${props.display}`, gridTemplateRows:`repeat(${rows}, 1fr)`,gridTemplateColumns:`repeat(${columns}, 1fr)`, minHeight:findMinHeight(props.gridClass) }}>
+    <MakeBoard></MakeBoard>
+  </div>
+);
+ 
+
   
   
   }

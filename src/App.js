@@ -1,13 +1,11 @@
 import { useState } from "react";
 import './App.css';
-//import DrawBoard from "./components/Drawboard";
 import Custom from './components/Custom';
 import ExtraBoard from "./components/ExtraBoard";
 import ChooseDifficulty from "./components/ChooseDifficulty";
-import DrawBoard2nd from "./components/DrawBoard2nd";
+import DrawBoard from "./components/DrawBoard";
 
 const App=()=> { 
-
 
 const[difficulty, setDifficulty]= useState('noDifficulty');
 
@@ -99,7 +97,7 @@ document.querySelector('body').addEventListener('contextmenu',( e )=> { e.preven
       <div className='gameContainer' style={{ visibility: gameVisibility }}>
       < ExtraBoard className='extraBoard' resetter={changeReset}/>
       
-      {!isHide ? <DrawBoard2nd gridClass={gridClass} id='drawBoard' display={display} mode={difficulty}  grid={gridValues}
+      {!isHide ? <DrawBoard gridClass={gridClass} id='drawBoard' display={display} mode={difficulty}  grid={gridValues}
        changeReset={changeReset} shouldReset={reset}/> : null}
       
       

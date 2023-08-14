@@ -3,7 +3,7 @@ import { useState } from "react";
 import './Custom.css'
 const Custom=(props)=>{
     let newGrid={}
-  console.log('custom')
+ 
     const [inputValues, setInput]=useState({
       inputRows:0, inputCols:0, inputBombs:0
     });
