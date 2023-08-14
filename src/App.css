@@ -1,0 +1,50 @@
+
+.App {
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  overflow:visible;
+}
+
+.container{
+  width:100vw ;
+  height: 100vh;
+  visibility: hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+#gameBoard{
+  margin: auto;
+  flex-direction: column;
+  flex-grow:1;
+  border: solid #444;
+  box-sizing: border-box;
+  width:100%;
+ max-width:500px;
+  
+}
+
+.noGrid{visibility: hidden;}
+
+
+@media  screen and (min-width:1500px) {
+  #gameBoard{
+    max-width:700px;
+    max-height:700px;
+   }
+   
+ }
+ 
+@media  screen and (max-width:1500px) {
+  
+  #gameBoard{
+    max-height:150px;
+   }
+   
+ }
